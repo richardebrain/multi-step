@@ -1,0 +1,24 @@
+<label class="container inline-block relative cursor-pointer select-none">
+  <input
+    type="checkbox"
+    [checked]="model"
+    class="absolute opacity-0 cursor-pointer h-0 w-0 peer"
+    (click)="toggleAddon()"
+  />
+  <div
+    class="w-full h-[84px] p-2 border-cool-gray border rounded-lg duration-300 hover:border-purplish-blue peer-checked:border-purplish-blue py-4 peer-checked:bg-alabaster"
+  >
+    <div class="px-10 flex justify-between items-center">
+      <div class="flex flex-col pl-5 justify-center">
+        <span class="font-semibold text-marine-blue text-lg"> {{ addonsData.title }} </span>
+        <span class="text-cool-gray"> {{ addonsData.description }} </span>
+      </div>
+      <span class="text-purplish-blue font-medium">
+        {{ addonsData.price }}
+      </span>
+    </div>
+  </div>
+  <span
+    class="checkmark rounded-md absolute top-1/2 -translate-y-1/2 left-5 h-[23px] w-[23px] border border-cool-gray after after:absolute after:hidden peer-checked:after:block peer-checked:bg-purplish-blue duration-300"
+  ></span>
+</label>

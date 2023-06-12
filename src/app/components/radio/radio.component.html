@@ -1,0 +1,24 @@
+<label class="labelContainer w-full h-full">
+  <input
+    type="radio"
+    name="plans"
+    class="absolute opacity-0 cursor-pointer peer"
+    [value]="value"
+    (click)="updateModel(value)"
+    [checked]="value === model"
+  />
+  <div
+    class="checkmark flex flex-col justify-between border p-3 lg:p-5 pr-6 border-light-gray rounded-md absolute w-full h-full duration-500 peer-checked:border-purplish-blue peer-checked:bg-alabaster peer-hover:border-purplish-blue"
+  >
+    <img [src]="img" [alt]="title" class="w-9 h-9" />
+    <div class="flex flex-col mt-8">
+      <span class="text-lg font-semibold text-marine-blue">{{
+        title
+      }}</span>
+      <span class="text-sm font-medium text-cool-gray">{{ price }}</span>
+      <span class="text-sm mt-1 font-medium text-marine-blue">{{
+        discount
+      }}</span>
+    </div>
+  </div>
+</label>

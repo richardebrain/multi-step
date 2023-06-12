@@ -1,0 +1,17 @@
+.labelContainer {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* .labelContainer input:checked ~ .checkmark {
+    border:red;
+  } */
+  
+
+  
+
