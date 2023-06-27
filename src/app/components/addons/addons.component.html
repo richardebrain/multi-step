@@ -6,12 +6,12 @@
     (click)="toggleAddon()"
   />
   <div
-    class="w-full h-[84px] p-2 border-cool-gray border rounded-lg duration-300 hover:border-purplish-blue peer-checked:border-purplish-blue py-4 peer-checked:bg-alabaster"
+    class="w-full p-2 border-cool-gray border rounded-lg duration-300 hover:border-purplish-blue peer-checked:border-purplish-blue py-2 peer-checked:bg-alabaster"
   >
-    <div class="px-10 flex justify-between items-center">
+    <div class="px-6 flex justify-between items-center">
       <div class="flex flex-col pl-5 justify-center">
         <span class="font-semibold text-marine-blue text-lg"> {{ addonsData.title }} </span>
-        <span class="text-cool-gray"> {{ addonsData.description }} </span>
+        <span class="text-cool-gray text-sm font-medium"> {{ addonsData.description }} </span>
       </div>
       <span class="text-purplish-blue font-medium">
         {{ addonsData.price }}
@@ -19,6 +19,6 @@
     </div>
   </div>
   <span
-    class="checkmark rounded-md absolute top-1/2 -translate-y-1/2 left-5 h-[23px] w-[23px] border border-cool-gray after after:absolute after:hidden peer-checked:after:block peer-checked:bg-purplish-blue duration-300"
+    class="checkmark rounded-md absolute top-1/2 -translate-y-1/2 left-5 h-[20px] w-[20px] border border-cool-gray after after:absolute after:hidden peer-checked:after:block peer-checked:bg-purplish-blue duration-300"
   ></span>
 </label>
