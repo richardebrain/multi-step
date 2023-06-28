@@ -39,7 +39,7 @@ model: any = '' ;
   //update the model and changes needed for the view here
   updateModel() {
     this.touched = true;
-    this.model = this.model === 'monthly' ? 'yearly' : 'monthly';
+    this.model = this.model === 'Monthly' ? 'Yearly' : 'Monthly';
     this.onTouched();
     this.onChange(this.model);
   }

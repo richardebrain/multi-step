@@ -1,9 +1,9 @@
-<app-stepper-component #cdkStepper [linear]="isLinear" selectedIndex="1">
+<app-stepper-component #cdkStepper [linear]="isLinear" selectedIndex="">
   <cdk-step [stepControl]="formInfo">
     <ng-template cdkStepLabel>
       <div class="flex items-center">
         <span
-          class="w-7 h-7 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
+          class="w-8 h-8 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
           [ngClass]="
             cdkStepper.selectedIndex === 0
               ? 'bg-pastel-blue text-marine-blue border-none'
@@ -27,16 +27,16 @@
     >
       <div class="">
         <h2 class="text-marine-blue font-bold text-3xl">Personal Info</h2>
-        <p class="text-sm text-cool-gray font-[500] mt-1">
+        <p class="text text-cool-gray font-[500] mt-1">
           Please provide your name, email address, and phone number.
         </p>
       </div>
-      <div class="flex flex-col mt-6 justify-between h-full" id="form-group">
+      <div class="flex flex-col mt-9 justify-between h-full" id="form-group">
         <div>
           <div class="flex flex-col">
             <label
               for="name"
-              class="text-sm font-semibold text-marine-blue mb-1"
+              class="font-medium text-[15px] text-marine-blue mb-1"
               >Name</label
             >
             <input
@@ -44,7 +44,7 @@
               name="name"
               id="name"
               placeholder="e.g. Stephen king"
-              class="border-2 h-10 px-3 rounded-md duration-500 text-sm tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
+              class="border-2 h-[54px] px-3 rounded-md duration-500 tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
               formControlName="name"
               required
             />
@@ -52,7 +52,7 @@
           <div class="flex flex-col mt-4">
             <label
               for="email"
-              class="text-sm font-semibold text-marine-blue mb-1"
+              class="font-medium text-[15px] text-marine-blue mb-1"
               >Email Address</label
             >
             <input
@@ -60,7 +60,7 @@
               name="email"
               id="email"
               placeholder="e.g. Stephenking@lorem.com"
-              class="border-2 h-10 px-3 rounded-md duration-500 text-sm tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
+              class="border-2 h-[54px] px-3 rounded-md duration-500 tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
               formControlName="email"
               required
             />
@@ -68,7 +68,7 @@
           <div class="flex flex-col mt-4">
             <label
               for="phone"
-              class="text-sm font-semibold text-marine-blue mb-1"
+              class="font-medium text-[15px] text-marine-blue mb-1"
               >Phone Number</label
             >
             <input
@@ -76,7 +76,7 @@
               name="phone"
               id="phone"
               placeholder="e.g. +1 234 567 890"
-              class="border-2 h-10 px-3 rounded-md duration-500 text-sm tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
+              class="border-2 h-[54px] px-3 rounded-md duration-500 tracking-normal placeholder:text-cool-gray font-semibold text-marine-blue focus:border-marine-blue"
               formControlName="phone"
               required
             />
@@ -84,12 +84,13 @@
         </div>
         <div class="self-end">
           <button
-            class="self-end bg-marine-blue text-alabaster h-10 w-24 rounded-lg text-sm"
+            class="bg-marine-blue text-magnolia font-semibold h-12 w-32 rounded-lg"
             (click)="cdkStepper.next()"
-            [disabled]="!formInfo.valid"
+            [ngClass]="!formPlans.valid ? 'opacity-50 cursor-not-allowed' : ''"
+            [disabled]="!formPlans.valid"
             type="button"
           >
-            Next Step
+            Next step
           </button>
         </div>
       </div>
@@ -98,9 +99,9 @@
   <!-- step 2 -->
   <cdk-step [stepControl]="formPlans">
     <ng-template cdkStepLabel>
-      <div class="flex items-center mt-5">
+      <div class="flex items-center mt-7">
         <span
-          class="w-7 h-7 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
+          class="w-8 h-8 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
           [ngClass]="
             cdkStepper.selectedIndex === 1
               ? 'bg-pastel-blue text-marine-blue border-none'
@@ -124,7 +125,7 @@
     >
       <div>
         <h2 class="text-marine-blue font-bold text-3xl">Select Your Plan</h2>
-        <p class="text-sm text-cool-gray font-[500] mt-1">
+        <p class="text text-cool-gray font-[500] mt-1">
           You have the option of yearly or monthly billing.
         </p>
       </div>
@@ -132,7 +133,7 @@
         <div class="flex flex-col mt-8">
           <div
             class="flex justify-between w-full h-full"
-            *ngIf="formPlans.value.duration == 'monthly'; else yearly"
+            *ngIf="formPlans.value.duration == 'Monthly'; else yearly"
           >
             <!-- map plans -->
             <div
@@ -175,16 +176,16 @@
           </div>
         </div>
         <!-- button -->
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <button
-            class="self-end text-cool-gray font-bold h-10 w-24 rounded-lg text-sm"
+            class="text-cool-gray font-bold rounded-lg"
             (click)="cdkStepper.previous()"
             type="button"
           >
             Go Back
           </button>
           <button
-            class="self-end bg-marine-blue text-alabaster h-10 w-24 rounded-lg text-sm"
+            class="bg-marine-blue text-magnolia font-semibold h-12 w-32 rounded-lg"
             (click)="cdkStepper.next()"
             [ngClass]="!formPlans.valid ? 'opacity-50 cursor-not-allowed' : ''"
             [disabled]="!formPlans.valid"
@@ -199,9 +200,9 @@
   <!-- step 3 -->
   <cdk-step [stepControl]="formAddOns">
     <ng-template cdkStepLabel>
-      <div class="flex items-center mt-5">
+      <div class="flex items-center mt-7">
         <span
-          class="w-7 h-7 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
+          class="w-8 h-8 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
           [ngClass]="
             cdkStepper.selectedIndex === 2
               ? 'bg-pastel-blue text-marine-blue border-none'
@@ -225,50 +226,52 @@
     >
       <div>
         <h2 class="text-marine-blue font-bold text-3xl">Pick Add-ons</h2>
-        <p class="text-sm text-cool-gray font-[500] mt-1">
+        <p class="text text-cool-gray font-[500] mt-1">
           Add-ons help enhance your gaming experinece.
         </p>
       </div>
-      <div class="flex justify-between flex-col h-full">
-        <div
-          class="flex flex-col mt-10"
-          formGroupName="addOns"
-          *ngIf="formPlans.value.duration == 'monthly'; else yearlyAddOns"
-        >
-          <app-addons
-            class="mt-2 h-full {{ i == 0 && 'mt-0' }}"
-            *ngFor="let addon of addOnsData; index as i"
-            [addonsData]="addon"
-            [formControlName]="addon.controlName"
-          ></app-addons>
+      <div class="flex flex-col justify-between h-full flex-1">
+        <div class="flex-1 h-full flex flex-col">
+          <div
+            class="flex flex-col mt-10"
+            formGroupName="addOns"
+            *ngIf="formPlans.value.duration == 'Monthly'; else yearlyAddOns"
+          >
+            <app-addons
+              class="mt-4 {{ i == 0 && 'mt-0' }}"
+              *ngFor="let addon of addOnsData; index as i"
+              [addonsData]="addon"
+              [formControlName]="addon.controlName"
+            ></app-addons>
+          </div>
+          <ng-template
+            #yearlyAddOns
+            class="flex flex-col mt-10"
+            formGroupName="addOns"
+          >
+            <app-addons
+              class="mt-4 {{ i == 0 && 'mt-0' }}"
+              *ngFor="let addon of addOnsDataYearly; index as i"
+              [addonsData]="addon"
+              [formControlName]="addon.controlName"
+            ></app-addons>
+          </ng-template>
         </div>
-        <ng-template
-          #yearlyAddOns
-          class="flex flex-col mt-10"
-          formGroupName="addOns"
-        >
-          <app-addons
-            class="mt-2 h-full {{ i == 0 && 'mt-0' }}"
-            *ngFor="let addon of addOnsDataYearly; index as i"
-            [addonsData]="addon"
-            [formControlName]="addon.controlName"
-          ></app-addons>
-        </ng-template>
         <!-- button -->
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <button
-            class="self-end text-cool-gray font-bold h-10 w-24 rounded-lg text-sm"
+            class="text-cool-gray font-bold rounded-lg"
             (click)="cdkStepper.previous()"
             type="button"
           >
             Go Back
           </button>
           <button
-            class="self-end bg-marine-blue text-alabaster h-10 w-24 rounded-lg text-sm"
+            class="bg-marine-blue text-magnolia font-semibold h-12 w-32 rounded-lg"
             (click)="cdkStepper.next()"
-            [ngClass]="!formAddOns.valid ? 'opacity-50 cursor-not-allowed' : ''"
-            [disabled]="!formAddOns.valid"
-            type="submit"
+            [ngClass]="!formPlans.valid ? 'opacity-50 cursor-not-allowed' : ''"
+            [disabled]="!formPlans.valid"
+            type="button"
           >
             Next Step
           </button>
@@ -279,9 +282,9 @@
   <!-- step 4 -->
   <cdk-step [stepControl]="formSummary">
     <ng-template cdkStepLabel>
-      <div class="flex items- mt-5">
+      <div class="flex items-center mt-7">
         <span
-          class="w-7 h-7 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
+          class="w-8 h-8 rounded-full flex items-center font-semibold justify-center text-sm border border-alabaster text-alabaster"
           [ngClass]="
             cdkStepper.selectedIndex === 3
               ? 'bg-pastel-blue text-marine-blue border-none'
@@ -303,16 +306,17 @@
       class="pt-10 pb-4 pr-10 flex flex-col h-full"
       (ngSubmit)="onSubmit(formSummary)"
       [formGroup]="formSummary"
+      *ngIf="!isSubmitted; else congrats"
     >
       <div class="">
         <h2 class="text-marine-blue font-bold text-3xl">Finishing up</h2>
-        <p class="text-sm text-cool-gray font-[500] mt-1">
+        <p class="text text-cool-gray font-[500] mt-1">
           Double-checks everything looks OK before confirming.
         </p>
       </div>
       <div class="flex flex-col mt-6 justify-between h-full">
         <div class="flex-1 flex flex-col">
-          <div class="bg-magnolia p-4">
+          <div class="bg-magnolia p-6 rounded-md">
             <!-- plans and duration -->
             <div
               class="border-b border-cool-gray flex justify-between items-center pb-5 mb-5"
@@ -322,60 +326,78 @@
                   formPlans.controls.duration.value
                 }})
                 <button
-                  class="text-start text-sm underline text-cool-gray font-medium"
+                  class="text-start underline text-cool-gray font-medium"
                   (click)="handleChange()"
+                  type="button"
                 >
-                  change
+                  Change
                 </button>
               </div>
-              <span class="text-sm font-semibold text-marine-blue">
+              <span class="font-semibold text-marine-blue">
                 {{ updatePlanValue(formPlans.controls.plans.value!) }}
               </span>
             </div>
             <!-- addons -->
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-3">
               <div
                 *ngFor="let addon of updateAddOnsValue()"
                 class="flex justify-between"
               >
-                <p class="text-sm font-medium text-cool-gray">
+                <p class="font-medium text-cool-gray">
                   {{ addon.title }}
                 </p>
-                <p class="text-sm font-medium text-marine-blue">
+                <p class="font-medium text-marine-blue">
                   {{ addon.price }}
                 </p>
               </div>
             </div>
           </div>
           <!-- total -->
-          <div class="px-4 flex justify-between mt-4">
-            <span class="text-sm font-medium text-cool-gray"
-              >Total ({{ isYearlyOrMonthly() ? "per Year" : "per Month" }})</span
+          <div class="px-4 flex justify-between items-center mt-6">
+            <span class="font-medium text-cool-gray"
+              >Total ({{
+                isYearlyOrMonthly() ? "per Year" : "per Month"
+              }})</span
             >
-            <span class="font-semibold text-lg text-purplish-blue">{{
+            <span class="font-bold text-2xl text-purplish-blue">{{
               calculateTotal(formPlans.controls.plans.value!)
             }}</span>
           </div>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <button
-            class="self-end text-cool-gray font-bold h-10 w-24 rounded-lg text-sm"
+            class="text-cool-gray font-bold rounded-lg"
             (click)="cdkStepper.previous()"
             type="button"
           >
             Go Back
           </button>
           <button
-            class="self-end bg-marine-blue text-alabaster h-10 w-24 rounded-lg text-sm"
+            class="bg-purplish-blue text-magnolia font-semibold h-12 w-32 rounded-lg"
             (click)="cdkStepper.next()"
             [ngClass]="!formPlans.valid ? 'opacity-50 cursor-not-allowed' : ''"
             [disabled]="!formPlans.valid"
-            type="button"
+            type="submit"
           >
-            Next Step
+            Confirm
           </button>
         </div>
       </div>
     </form>
+    <ng-template #congrats>
+      <div class="flex flex-col items-center h-full py-40 pr-12">
+        <img
+          src="../../../assets/images/icon-thank-you.svg"
+          alt="thank you"
+          class="w-20 h-20"
+        />
+        <h3 class="mt-7 text-4xl font-semibold text-marine-blue">Thank you!</h3>
+        <p class="text-center font-medium text-cool-gray mt-4 text-lg">
+          Thanks for confirming your subscription! we hope you have fun using
+          our platform. if you ever need support, please feel free to email us
+          at richardebrain20@gmail.com
+        </p>
+      </div>
+    </ng-template>
   </cdk-step>
 </app-stepper-component>

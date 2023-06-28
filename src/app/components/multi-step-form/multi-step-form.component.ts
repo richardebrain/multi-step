@@ -148,6 +148,7 @@ export class MultiStepFormComponent {
   isYearlyOrMonthly() {
     return this.formPlans.controls.duration.value == 'Yearly' ? true : false;
   }
+  isSubmitted = false;
   calculateTotal(planTitle: string) {
     if (!planTitle) return 0;
     const planPrice = this.updatePlanValue(planTitle)!;
@@ -165,6 +166,6 @@ export class MultiStepFormComponent {
   }
   constructor(private fb: FormBuilder) {}
   onSubmit(Formdetails: FormGroup) {
-    console.log(Formdetails.value);
+    this.isSubmitted = true;
   }
 }

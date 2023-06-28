@@ -1,7 +1,13 @@
 <div class="flex items-center gap-4 justify-center">
   <span class="text-sm text-cool-gray font-bold">Monthly</span>
   <label class="switch">
-    <input type="checkbox"  name="duration" (click)="updateModel()" />
+    <input
+      type="checkbox"
+      name="duration"
+      (click)="updateModel()"
+      [value]="model"
+      [checked]="model == 'Yearly'"
+    />
     <span class="slider"></span>
   </label>
   <span class="text-sm text-cool-gray font-bold">Yearly</span>
